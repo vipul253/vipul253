@@ -1,1 +1,10 @@
 <p>firstpage works!</p>
+<button (click)="showData()">showData</button>
+
+
+<ul>
+@for (item of userList; track item.id) 
+{
+    <li>{{item.id}} - {{item.name}} - {{item.email}}</li>
+}
+</ul>
