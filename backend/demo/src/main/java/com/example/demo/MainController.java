@@ -2,13 +2,17 @@ package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller // This means that this class is a Controller
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
 public class MainController {
   @Autowired // This means to get the bean called userRepository
@@ -16,16 +20,13 @@ public class MainController {
   private UserRepository userRepository;
 
   @PostMapping(path="/add") // Map ONLY POST Requests
-  public @ResponseBody String addNewUser (@RequestParam String name
-      , @RequestParam String email) {
+  public @ResponseBody String addNewUser (@ModelAttribute User user,Model model) {
     // @ResponseBody means the returned String is the response, not a view name
     // @RequestParam means it is a parameter from the GET or POST request
 
-    User n = new User();
-    n.setName(name);
-    n.setEmail(email);
-    userRepository.save(n);
-    return "Saved";
+    userRepository.save(user);
+    model.addAttribute("message", "User submitted successfully!");
+    return "{\"message\": \"successfully!\"}"; // Return a view name
   }
 
   @GetMapping(path="/all")
