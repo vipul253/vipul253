@@ -24,6 +24,7 @@ public class TerminalOps {
 		System.out.println(optionalInteger.get());
 
 		// 4. count
+		System.out.println(list.stream().count());
 
 		// 5. anyMatch, allMatch, noneMatch
 
@@ -33,6 +34,15 @@ public class TerminalOps {
 		System.out.println(b1);
 		boolean b2 = list.stream().noneMatch(x -> x < 0);
 		System.out.println(b2);
+		// Checking for Non-Occurrence (None Match):
+		// To check if no elements in a stream satisfy a given condition (predicate),
+		// you can use the noneMatch() terminal operation.
+		// This method returns true if no elements match the predicate, and false
+		// otherwise.
+		List<Integer> numbers1 = Arrays.asList(1, 3, 5, 7, 9);
+		// Check if none of the numbers are even
+		boolean noneEven = numbers1.stream().noneMatch(n -> n % 2 == 0);
+		System.out.println("Are none of the numbers even? " + noneEven);
 
 		// 6. findFirst, findAny
 		System.out.println(list.stream().findFirst().get());
@@ -41,7 +51,7 @@ public class TerminalOps {
 		// 7. toArray()
 
 		Object[] array = Stream.of(1, 2, 3).toArray();
-
+		System.out.println(array);
 		// 8. min / max
 		System.out.println("max: " + Stream.of(2, 44, 69).max((o1, o2) -> o2 - o1));
 		System.out.println("min: " + Stream.of(2, 44, 69).min(Comparator.naturalOrder()));

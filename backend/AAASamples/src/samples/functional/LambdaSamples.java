@@ -18,10 +18,11 @@ public class LambdaSamples {
 		Thread t1 = new Thread(() -> {
 			System.out.println("Hello");
 		});
+		t1.interrupt();
 
 		MathOperation sumOperation = (a, b) -> a + b;
 		MathOperation subtractOperation = (a, b) -> a - b;
-		int res = sumOperation.operate(1, 2);
+		int res = sumOperation.operate(1, 2) - subtractOperation.operate(5, 3);
 		System.out.println(res);
 
 		// Predicate --> Functional interface ( Boolean valued function )
@@ -76,13 +77,14 @@ public class LambdaSamples {
 			System.out.println(x);
 			System.out.println(y);
 		};
+		biConsumer.accept(777, "bam");
 		BiFunction<String, String, Integer> biFunction = (x, y) -> (x + y).length();
 		System.out.println(biFunction.apply("a", "bc"));
 
 		// UnaryOperator, BinaryOperator
 		UnaryOperator<Integer> a = x -> 2 * x;
 		BinaryOperator<Integer> b = (x, y) -> x + y;
-
+		a.apply(b.apply(999, 333));
 		// Method reference --> use method without invoking & in place of lambda
 		// expression
 		List<String> students = Arrays.asList("Ram", "Shyam", "Ghanshyam");
@@ -91,7 +93,9 @@ public class LambdaSamples {
 
 		// Constructor reference
 		List<String> names = Arrays.asList("A", "B", "C");
+		//makes 3 new classes of mobile phones from names list
 		List<MobilePhone> mobilePhoneList = names.stream().map(MobilePhone::new).collect(Collectors.toList());
+		System.out.println(mobilePhoneList);
 
 	}
 

@@ -13,17 +13,19 @@ public class IntermediateOps {
 		// 1. filter
 		List<String> list = Arrays.asList("Akshit", "Ram", "Shyam", "Ghanshyam", "Akshit");
 		Stream<String> filteredStream = list.stream().filter(x -> x.startsWith("A"));
+		System.out.println(filteredStream);
 		// no filtering at this point
 		long res = list.stream().filter(x -> x.startsWith("A")).count();
 		System.out.println(res);
 
 		// 2.map
 		Stream<String> stringStream = list.stream().map(String::toUpperCase);
-
+		System.out.println(stringStream);
 		// 3. sorted
 		Stream<String> sortedStream = list.stream().sorted();
 		Stream<String> sortedStreamUsingComparator = list.stream().sorted((a, b) -> a.length() - b.length());
-
+		System.out.println(sortedStream);
+		System.out.println(sortedStreamUsingComparator);
 		// 4. distinct
 		System.out.println(list.stream().filter(x -> x.startsWith("A")).distinct().count());
 

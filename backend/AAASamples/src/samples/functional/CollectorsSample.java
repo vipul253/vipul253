@@ -27,7 +27,7 @@ public class CollectorsSample {
 
 		// 3. Collecting to a Specific Collection
 		ArrayDeque<String> collect = names.stream().collect(Collectors.toCollection(() -> new ArrayDeque<>()));
-
+		System.out.println(collect);
 		// 4. Joining Strings
 		// Concatenates stream elements into a single String
 		String concatenatedNames = names.stream().map(String::toUpperCase).collect(Collectors.joining(", "));

@@ -14,6 +14,7 @@ public class ParallelStream {
 		long startTime = System.currentTimeMillis();
 		List<Integer> list = Stream.iterate(1, x -> x + 1).limit(20000).toList();
 		List<Long> factorialsList = list.stream().map(ParallelStream::factorial).toList();
+		System.out.println(factorialsList);
 		long endTime = System.currentTimeMillis();
 		System.out.println("Time taken with sequential stream: " + (endTime - startTime) + " ms");
 

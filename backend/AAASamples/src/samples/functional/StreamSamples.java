@@ -30,18 +30,21 @@ public class StreamSamples {
 		// 1. From collections
 		List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
 		Stream<Integer> stream = list.stream();
+		System.out.println(stream);
 		// 2. From Arrays
 		String[] array = { "a", "b", "c" };
 		Stream<String> stream1 = Arrays.stream(array);
+		System.out.println(stream1);
 		// 3. Using Stream.of()
 		Stream<String> stream2 = Stream.of("a", "b");
+		System.out.println(stream2);
 		// 4. Infinite streams
 		Stream.generate(() -> 1);
 		Stream.iterate(1, x -> x + 1);
 
 		// Lazy Evaluation
 		List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
-		
+
 		Stream<String> stream3 = names.stream().filter(name -> {
 			System.out.println("Filtering: " + name);
 			return name.length() > 3;
@@ -54,10 +57,10 @@ public class StreamSamples {
 		System.out.println("After terminal operation");
 		System.out.println(result);
 
-		//Primitive streams of int double long etc.
+		// Primitive streams of int double long etc.
 		int[] numbers1 = { 1, 2, 3, 4, 5 };
 		IntStream stream5 = Arrays.stream(numbers1);
-
+		System.out.println(stream5);
 		System.out.println(IntStream.range(1, 5).boxed().collect(Collectors.toList()));
 		System.out.println(IntStream.rangeClosed(1, 5).boxed().collect(Collectors.toList()));
 
