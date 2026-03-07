@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class ProducerConsumerProblem {
 
 	//given 2 thread entity consumer and producer handle there communication 
-	//such that they dont get stuck and are able to read and write to shared resource.
+	//such that they don't get stuck and are able to read and write to shared resource.
 	public static void main(String[] args) {
 
 		int n = 11;// take from console when asked
@@ -15,7 +15,7 @@ public class ProducerConsumerProblem {
 			for (int i = 1; i < n; i++) {
 				try {
 					shared.putInResource(i);
-					Thread.sleep(100); // this allows time consumer to read from resource
+					//Thread.sleep(100); 
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -25,7 +25,7 @@ public class ProducerConsumerProblem {
 			for (int i = 1; i < n; i++) {
 				try {
 					shared.getFromResource();
-					Thread.sleep(50); // this allows time produce to add in resource
+					Thread.sleep(50); // this adds time produce to add in resource
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -61,7 +61,7 @@ class SharedResourceSample {
 		while (resource.size() == 0) {
 			wait(); // waiting till producerThread adds something to resource
 		}
-		String msg = resource.removeFirst();
+		String msg = resource.remove(resource.size()-1);
 		System.out.println("Consumed " + msg);
 		notifyAll();
 	}
