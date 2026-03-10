@@ -1,3 +1,5 @@
+//function have their own Function execution stack which is added to call stack
+//JS is single threaded so all execution is synchronous with asych call capacity
 var b = function (param1, param2) {
   // labels/identifiers are parameters
   console.log(param1 + "b called" + param2);
