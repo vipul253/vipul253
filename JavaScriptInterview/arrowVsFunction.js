@@ -12,11 +12,3 @@ var person = {
 };
 person.getDetail();
 person.getName(); // undefined as arrow function does not have its own this binding
-
-var foo = function () {
-  console.log("function expression");
-};
-function foo() {
-  console.log("function declaration");//this will be hoisted at top then var foo will overWrite declaration
-}
-foo();//calls expression

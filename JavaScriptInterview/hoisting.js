@@ -44,6 +44,14 @@ function b() {
 }
 //Output 10 100 1
 
+var foo = function () {
+  console.log("function expression");
+};
+function foo() {
+  console.log("function declaration");//this will be hoisted at top then var foo will overWrite declaration
+}
+foo();//calls expression
+
 //Unlike function declaration, class declarations are not hoisted. This means you cannot accessed a 
 //class before its declaration.
 //new Car(); // ReferenceError: cannot access "Car" before initialization
