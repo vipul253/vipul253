@@ -14,7 +14,7 @@ public class EqualityBased {
 		System.out.println(a==c);
 		
 		String d = new String("test");
-		//false as c is new object in heap and d is also separare obj in heap
+		//false as c is new object in heap and d is also separate object in heap
 		System.out.println(d==c);
 	}
 }
