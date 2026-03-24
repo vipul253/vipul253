@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CounterService } from '../../services/service-sample';
 import { CounterA, CounterB } from './shared-service';
 import { CardComponent } from './card';
+import { HotStateService } from '../../services/hot-observable-sample';
 
 @Component({
   selector: 'service-sample-demo',
@@ -25,8 +26,16 @@ import { CardComponent } from './card';
       </div>
     </div>
     <p><em>All components use the same CounterService instance.</em></p>
+    <button (click)="callHotObservable()">HotObservableDemoConsoleLog</button>
   `,
 })
 export class ServiceSampleDemo {
-  constructor(public counter: CounterService) {}
+  constructor(
+    public counter: CounterService,
+    public hotObservable: HotStateService,
+  ) {}
+
+  callHotObservable() {
+    this.hotObservable.sendMessage('Hello everyone');
+  }
 }

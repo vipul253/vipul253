@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CounterService } from '../../services/service-sample';
+import { HotStateService } from '../../services/hot-observable-sample';
 
 @Component({
   selector: 'counter-a',
@@ -11,7 +12,12 @@ import { CounterService } from '../../services/service-sample';
   `,
 })
 export class CounterA {
-  constructor(public counter: CounterService) {}
+  constructor(
+    public counter: CounterService,
+    public hotObservable: HotStateService,
+  ) {
+    this.hotObservable.message$.subscribe((msg: string) => console.log('Component 1:', msg));
+  }
 }
 
 @Component({
@@ -24,5 +30,10 @@ export class CounterA {
   `,
 })
 export class CounterB {
-  constructor(public counter: CounterService) {}
+  constructor(
+    public counter: CounterService,
+    public hotObservable: HotStateService,
+  ) {
+    this.hotObservable.message$.subscribe((msg: string) => console.log('Component 1:', msg));
+  }
 }
