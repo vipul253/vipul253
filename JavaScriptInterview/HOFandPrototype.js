@@ -8,7 +8,7 @@ function y(x) {
 }
 y(x); // Hi
 // y is a higher order function
-// x is a callback function
+// x is the callback function
 
 //Let's try to understand how we should approach solution in interview. I have an array of radius and
 //I have to calculate area using these radius and store in an array.
@@ -77,13 +77,13 @@ Array.prototype.calculate = function (operation) {
 };
 console.log(radiusArr.calculate(area));
 
-//In JavaScript, every object has a hidden internal link (known as its [[Prototype]])
+// In JavaScript, every object has a hidden internal link (known as its [[Prototype]])
 // to another object, called its prototype. This mechanism enables prototypal inheritance,
 // allowing objects to share and reuse methods and properties, rather than duplicating them in
 // every instance
-//Shared Blueprint: The prototype acts as a blueprint, storing common methods and properties for all
+// Shared Blueprint: The prototype acts as a blueprint, storing common methods and properties for all
 // instances of a specific type (e.g., all arrays share methods like map() and push() from Array.prototype).
-//Memory Efficiency: Methods defined on the prototype are stored once in memory, rather than being
+// Memory Efficiency: Methods defined on the prototype are stored once in memory, rather than being
 // duplicated for every new object instance, which is more efficient.
-//Arrow Functions: Do not use arrow functions for prototype methods if you need access to the this keyword, 
+// Arrow Functions: Do not use arrow functions for prototype methods if you need access to the this keyword,
 // as arrow functions do not bind their own this value

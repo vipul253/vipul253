@@ -18,7 +18,9 @@ const sumOfElem = array.reduce(function (accumulator, current) {
   // In comparison to previous code snippet, *sum* variable is *accumulator* and *arr[i]* is *current*
   accumulator = accumulator + current;
   return accumulator;
-}, 0); //In above example sum was initialized with 0, so over here accumulator also needs to be initialized, so the second argument to reduce function represent the initialization value.
+}, 0);
+//In above example sum was initialized with 0, so over here accumulator also needs to be initialized,
+//so the second argument to reduce function represent the initialization value.
 console.log(sumOfElem); // 17
 
 // find max inside array: Non functional programming way:
@@ -68,15 +70,13 @@ const report = users.reduce((acc, curr) => {
   } else {
     acc[curr.age] = 1;
   }
-  return acc; //to every time return update object
+  return acc; //to every time return updated object
 }, {});
 console.log(report); // {29 : 2, 23 : 1, 50 : 1}
 
 // function chaining
 // First name of all people whose age is less than 30
-const output3 = users
-  .filter((user) => user.age < 30)
-  .map((user) => user.firstName);
+const output3 = users.filter(user => user.age < 30).map(user => user.firstName);
 console.log(output3); // ["Alok", "Ashish", "Ankit"]
 
 //challenge: Implement the same logic using reduce

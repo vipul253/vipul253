@@ -2,8 +2,6 @@
 // before they are actually defined in the code. During the memory creation phase of the execution context, 
 // variables are initialized to undefined, while function declarations are stored in memory as they are.
 
-// Variables are initialized as undefined and function declarations are stored as they are during the 
-// memory allocation phase.
 // Hoisting enables us to use variables and call functions before they are actually declared in the code.
 // Using a variable or calling a function before its declaration will not result in an error, but the variable 
 // will have the value undefined until it is assigned a value. If a variable is not declared at all, it is 
@@ -48,7 +46,8 @@ var foo = function () {
   console.log("function expression");
 };
 function foo() {
-  console.log("function declaration");//this will be hoisted at top then var foo will overWrite declaration
+  //this will be hoisted at top then var foo will overWrite declaration
+  console.log("function declaration");
 }
 foo();//calls expression
 

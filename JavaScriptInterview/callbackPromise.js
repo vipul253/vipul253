@@ -37,8 +37,7 @@ const promise = createOrder(cart); // orderId
 console.log(promise);
 // It prints Promise {<pending>}, but why?
 // Because above createOrder is going to take sometime to get resolved, so pending state. But once
-// the promise is resolved, `.then` would be executed for callback
-// promise
+// the promise is resolved, `.then` would be executed for callback promise
 //   .then(function (orderId) {
 //     proceedToPayment(orderId);
 //   })

@@ -7,6 +7,7 @@ var person = {
     console.log("getDetail " + this.name);
   },
   getName: () => {
+    //if we remove this. it will reference to outer scope name
     console.log("getName " + this.name);
   },
 };

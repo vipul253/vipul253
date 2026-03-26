@@ -17,6 +17,7 @@ for (let i = 0; i < 3; i++) {
 }
 
 // Always use let and const to create variables
-// let and const are the standard way of declaring variables in JavaScript. They remove the unpredictable code behavior that comes with using var.
+// let and const are the standard way of declaring variables in JavaScript. They remove the 
+// unpredictable code behavior that comes with using var.
 
 // There is almost no reason to use var to declare variables in modern JavaScript.

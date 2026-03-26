@@ -20,6 +20,10 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
+    path: 'product/:id',
+    component: Product,
+  },
+  {
     path: 'cardnav',
     loadComponent: () => import('./components/samples/card-nav-sample').then((m) => m.CardNavSample),
   },
@@ -75,10 +79,6 @@ export const routes: Routes = [
     loadComponent: () => import('./components/samples/route-param-sample').then((m) => m.RouteParamSample),
   },
   {
-    path: 'product/:id',
-    component: Product,
-  },
-  {
     path: 'nguardsample',
     loadComponent: () => import('./components/samples/route-guard-sample').then((m) => m.RouteGuardSample),
   },
@@ -98,4 +98,8 @@ export const routes: Routes = [
     path: 'ncustompipe',
     loadComponent: () => import('./components/samples/custom-pipe-sample').then((m) => m.CustomPipeSample),
   },
+  {
+    path: 'ninoutput',
+    loadComponent: () => import('./components/samples/input-output-sample').then((m) => m.ParentSample),
+  }
 ];

@@ -14,7 +14,7 @@ import {
   standalone: true,
   template: `
     <p>Child received: {{ text }}</p>
-    <p>Last change: {{ lastPrev || 'âˆ…' }} -> {{ lastCurr || 'âˆ…' }}</p>
+    <p>Last change: {{ lastPrev || 'blank' }} -> {{ lastCurr || 'blank' }}</p>
   `,
 })
 export class Child {

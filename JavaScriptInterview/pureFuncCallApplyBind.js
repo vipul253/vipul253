@@ -39,7 +39,6 @@ Object.prototype.MyBind = function (bindObj, ...args) {
 let HiFunMyBind = PrintName.sayHi.MyBind(nameObj, 42);
 HiFunMyBind();
 
-
 //call() method invokes the function immediately and sets 'this' to the first argument.
 //Any additional arguments are passed directly to the function.
 let nameObj2 = {
@@ -52,7 +51,7 @@ let PrintName2 = {
   },
 };
 PrintName2.sayHi.call(nameObj2, 42);
-//here nameObj2 is passed as 'this' and sayHi sees nameObj as its obj instead of printName
+//here nameObj2 is passed as 'this' and sayHi sees nameObj2 as its obj instead of printName
 //we can make out own custom call() using object[prototype]
 Object.prototype.MyCall = function (bindObj, ...args) {
     bindObj.myMethod = this;
@@ -77,6 +76,6 @@ Object.prototype.MyApply = function (bindObj, args) {
 
 }
 PrintName.sayHi.MyApply(nameObj, [42]);
-//In this polyfill, we pass arguments as an arrayjust like the native apply() method. 
+//In this polyfill, we pass arguments as an array just like the native apply() method. 
 //Other than accepting arguments differently, 
 //the implementation works the same way as our call() polyfill.
