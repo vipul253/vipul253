@@ -19,7 +19,7 @@ public class UserService {
 
     public void importUsersFromCsv() throws IOException {
         try (Reader reader = new FileReader(new ClassPathResource("users.csv").getFile())) {
-            List<DemoUser> users = new CsvToBeanBuilder(reader)
+            List<DemoUser> users = new CsvToBeanBuilder<DemoUser>(reader)
                     .withType(DemoUser.class)
                     .build()
                     .parse();

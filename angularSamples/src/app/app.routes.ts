@@ -101,5 +101,9 @@ export const routes: Routes = [
   {
     path: 'ninoutput',
     loadComponent: () => import('./components/samples/input-output-sample').then((m) => m.ParentSample),
+  },
+  {
+    path: 'nuploadsample',
+    loadComponent: () => import('./components/samples/file-upload-sample').then((m) => m.FileUploadSample),
   }
 ];
