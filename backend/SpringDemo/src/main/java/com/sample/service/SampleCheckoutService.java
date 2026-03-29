@@ -13,7 +13,7 @@ public class SampleCheckoutService {
 
     // Explicitly injects the "payPalService" bean using @Qualifier
     @Autowired
-    @Qualifier("payPalService")
+    @Qualifier("payPal")
     private PaymentService payPalPaymentService;
     
     public void paymentServiceCaller() {
