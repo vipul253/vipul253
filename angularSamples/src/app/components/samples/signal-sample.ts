@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal, effect } from '@angular/core';
 
 @Component({
   selector: 'signal-sample',
@@ -52,6 +52,7 @@ import { Component, signal } from '@angular/core';
       <button (click)="startLoading()">Start Loading</button>
       <button (click)="showError()">Set Error</button>
       <button (click)="reset()">Reset</button>
+      <button (click)="myLog()">fullNameSignal</button>
       <span style="margin-left:8px;color:#666">loading={{ loading() }} error={{ error() }}</span>
     </div>
 
@@ -70,6 +71,7 @@ export class SignalSample {
 
   loading = signal(false);
   error = signal(false);
+
   private _timer: any;
 
   startLoading() {
@@ -88,5 +90,51 @@ export class SignalSample {
     this.loading.set(false);
     this.error.set(false);
     this.startLoading();
+  }
+
+  // 1. Writable Signal (The raw state)
+  quantity = signal(2);
+  price = signal(10);
+
+  // 2. Computed Signal (Derived state, read-only)
+  // Re-calculates only when quantity or price changes
+  total = computed(() => this.quantity() + this.price());
+
+  firstName = signal('Jane');
+  lastName = signal('Smith');
+  age = signal(25);
+
+  // The 'fullName' is a computed signal that updates automatically when
+  // 'firstName' or 'lastName' changes.
+  fullName = computed(() => `${this.firstName()} ${this.lastName()}`);
+
+  // The 'isAdult' is a computed signal based on the 'age' signal.
+  isAdult = computed(() => this.age() >= 18);
+
+  myLog() {
+    console.log(this.fullName()); // Outputs: Jane Smith
+    console.log(this.isAdult());
+    // Outputs: true
+    this.firstName.set('John');
+    console.log(this.fullName()); // Outputs: John Smith (automatically updated)
+  }
+
+  // 3. Effect (Side Effect)
+  // Runs whenever count() changes
+  // An effect is used to synchronize the state of signals with non-reactive APIs or 
+  // perform actions like logging
+  count = signal(0);
+  constructor() {
+    // This effect runs whenever the 'theme' signal changes
+    effect(() => {
+      const currentCount = this.count();
+      try {
+        // Good use case: interacting with a non-reactive browser API (localStorage)
+        // localStorage.setItem('count', currentCount);
+        console.log(`count updated in localStorage to: ${currentCount}`);
+      } catch (error) {
+        console.error('Could not save theme to localStorage', error);
+      }
+    });
   }
 }
