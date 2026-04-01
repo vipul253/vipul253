@@ -34,6 +34,6 @@ export class CounterB {
     public counter: CounterService,
     public hotObservable: HotStateService,
   ) {
-    this.hotObservable.message$.subscribe((msg: string) => console.log('Component 1:', msg));
+    this.hotObservable.message$.subscribe((msg: string) => console.log('Component 2:', msg));
   }
 }

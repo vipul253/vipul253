@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { interval, of } from 'rxjs';
-import { map, delay } from 'rxjs/operators';
+import { map, delay, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'async-pipe-sample',
@@ -28,6 +28,7 @@ import { map, delay } from 'rxjs/operators';
 })
 export class AsyncPipeSample {
   //delayed observables
-  time$ = interval(1200).pipe(map(() => new Date()));
+  time$ = interval(1200).pipe(map(() => new Date()));//map can operate on data
   users$ = of([{ name: 'Alice' }, { name: 'Bob' }, { name: 'Carol' }]).pipe(delay(1200));
+  time2$ = interval(500).pipe(tap(() => new Date()));//tap does not modify data
 }

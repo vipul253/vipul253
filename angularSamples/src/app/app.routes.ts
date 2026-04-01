@@ -3,8 +3,18 @@ import { HomeSample } from './components/samples/home-sample';
 import { AboutSample } from './components/samples/about-sample';
 import { Product } from './components/samples/product-cmp';
 import { authGuard } from './components/samples/route-guard-sample';
+import { authGuardGlobal } from './guards/auth-guard';
 
 export const routes: Routes = [
+  // Public route for login (no guard applied)
+  { path: 'login', component: HomeSample }, //LoginComponent },
+  {
+    path: 'tempPath',
+    canActivate: [authGuardGlobal], // Apply the guard to this parent route
+    children: [
+      //here internal child routes now check authGuardGlobal
+    ],
+  },
   {
     path: '',
     pathMatch: 'full',
@@ -105,5 +115,5 @@ export const routes: Routes = [
   {
     path: 'nuploadsample',
     loadComponent: () => import('./components/samples/file-upload-sample').then((m) => m.FileUploadSample),
-  }
+  },
 ];

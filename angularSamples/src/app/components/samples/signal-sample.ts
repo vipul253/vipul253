@@ -125,7 +125,7 @@ export class SignalSample {
   // perform actions like logging
   count = signal(0);
   constructor() {
-    // This effect runs whenever the 'theme' signal changes
+    // This effect runs whenever the 'count' signal changes
     effect(() => {
       const currentCount = this.count();
       try {

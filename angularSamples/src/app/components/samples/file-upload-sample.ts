@@ -3,6 +3,7 @@ import { FileUploadService } from '../../services/file-upload-service';
 import { CommonModule } from '@angular/common';
 import { catchError, finalize, Observable, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+
 @Component({
   selector: 'file-upload-sample',
   imports: [CommonModule], // Add CommonModule to imports
