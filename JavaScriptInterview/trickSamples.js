@@ -18,3 +18,10 @@ console.log(arr == str);
 console.log(3 * "9"); //27
 console.log("9" * 3); //27
 console.log(4 / 0); //lool this prints the word "Infinity"
+
+var a = 10;
+var result = (function () {
+  //delete a;
+  return a;
+})();
+console.log(result);
