@@ -20,7 +20,6 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
 	}
 }
-
 /*
  * @RestControllerAdvice and @ControllerAdvice both annotations provide a
  * mechanism for global exception handling and other cross-cutting concerns
