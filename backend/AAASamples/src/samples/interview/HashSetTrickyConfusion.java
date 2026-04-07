@@ -14,7 +14,10 @@ public class HashSetTrickyConfusion {
 		studentList.add(st3);
 		System.out.println(studentList.size());// 3
 		System.out.println(studentList);
-		st1.id = 2;// we break the uniqueness of hashSet here as Student fields are public and mutable
+		st1.id = 2;
+		// we break the uniqueness of hashSet here as Student fields are public and
+		// mutable, java is pas by reference so st1 object and st1 added to list both
+		// point to same location
 		System.out.println(studentList.size());// 2
 		System.out.println(studentList);
 	}

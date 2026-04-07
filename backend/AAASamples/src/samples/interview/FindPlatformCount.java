@@ -7,16 +7,16 @@ public class FindPlatformCount {
 	public static int findPlatform(int[] arr, int[] dep) {
 		// Assuming time is in HHMM format and max 24 hours.
 		// Using 2400 for 24-hour clock + margin
-		int[] platformTimeline = new int[2405];//2400 hours
+		int[] platformTimeline = new int[2402];//2400 hours
 
 		for (int i = 0; i < arr.length; i++) {
 			platformTimeline[arr[i]]++;
-			platformTimeline[dep[i] + 1]--;// or just dep[i] for instant departure
+			platformTimeline[dep[i]+1]--;// or just dep[i] for instant departure
 		}
 
 		int maxPlatforms = 0;
 		int currentPlatforms = 0;
-		for (int i = 0; i < 2405; i++) {
+		for (int i = 0; i < 2402; i++) {
 			currentPlatforms += platformTimeline[i];
 			maxPlatforms = Math.max(maxPlatforms, currentPlatforms);
 		}

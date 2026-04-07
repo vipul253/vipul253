@@ -25,3 +25,8 @@ var result = (function () {
   return a;
 })();
 console.log(result);
+
+var string1 = "123";
+var intval = 123;
+console.log(string1+intval);
+//intval will be concactenated as string
