@@ -24,10 +24,10 @@ const b=10;
 //b = 10;
 console.log(b); 
 // SyntaxError: Missing initializer in const declaration. (This type of declaration won't work with const. 
-// const b = 10 only will work)
+// only const b = 10 will work)
 
 const b1 = 100;
-//b1 = 1000; 
+//b1 = 1000; //cannot reassign
 //this gives us TypeError: Assignment to constant variable.
 
 // he most significant drawback is that const does not make the value itself immutable; 
