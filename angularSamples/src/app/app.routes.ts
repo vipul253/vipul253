@@ -4,6 +4,7 @@ import { AboutSample } from './components/samples/about-sample';
 import { Product } from './components/samples/product-cmp';
 import { authGuard } from './components/samples/route-guard-sample';
 import { authGuardGlobal } from './guards/auth-guard';
+import { sampleResolver } from './resolver/sample-resolver';
 
 export const routes: Routes = [
   // Public route for login (no guard applied)
@@ -32,6 +33,7 @@ export const routes: Routes = [
   {
     path: 'product/:id',
     component: Product,
+    resolve: { data: sampleResolver } // 'data' is the key to access data later
   },
   {
     path: 'cardnav',
