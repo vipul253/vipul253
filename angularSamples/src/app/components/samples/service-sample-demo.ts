@@ -26,7 +26,7 @@ import { HotStateService } from '../../services/hot-observable-sample';
       </div>
     </div>
     <p><em>All components use the same CounterService instance.</em></p>
-    <button (click)="callHotObservable()">HotObservableDemoConsoleLog</button>
+    <button class="btn btn-primary" (click)="callHotObservable()">Hot Cold Observable Demo ConsoleLog</button>
   `,
 })
 export class ServiceSampleDemo {
