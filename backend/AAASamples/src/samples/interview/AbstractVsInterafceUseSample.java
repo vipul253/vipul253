@@ -31,7 +31,7 @@ public class AbstractVsInterafceUseSample {
 @FunctionalInterface
 interface Drawable {
 	void draw(); // Implicitly public and abstract
-	//void draw2(); // checked error for @FunctionalInterface
+	//int draw2(); // checked error for @FunctionalInterface
 }
 
 //Another Interface
