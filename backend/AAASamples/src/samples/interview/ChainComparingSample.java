@@ -18,14 +18,14 @@ public class ChainComparingSample {
 	 */
 	public static void main(String[] args) {
 		List<Employee> list = Arrays.asList(new Employee("Charlie", "IT"), new Employee("Alice", "HR"),
-				new Employee(null, "IT"), new Employee("Bob", "IT"));// null name 3rd emp
+				new Employee(null, "IT"), new Employee("Bob", "IT"));// null name 3rd employee
 
 		// Define a name comparator that handles nulls safely
 		Comparator<String> nameWithNulls = Comparator.nullsFirst(Comparator.naturalOrder());
 
 		// 1. Sort by Department
 		// 2. THEN sort by Name (if departments are equal)
-		list.sort(Comparator.comparing(Employee::getDept)
+		list.sort(Comparator.comparing(Employee::getDept,Comparator.reverseOrder())
 				// Use the null-safe comparator for the name field
 				.thenComparing(Employee::getName, nameWithNulls));
 

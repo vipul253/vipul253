@@ -19,7 +19,7 @@ public class SampleInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		System.out.println("request at /quiz intercepted "+ request.getRequestURI());
+		System.out.println("1. request at /quiz intercepted "+ request.getRequestURI());
 		// Add pre-processing logic here (e.g., logging, authentication)
 		return true; // Return false to stop further execution
 	}
