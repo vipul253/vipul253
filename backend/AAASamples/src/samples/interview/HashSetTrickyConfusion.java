@@ -18,7 +18,7 @@ public class HashSetTrickyConfusion {
 		// we break the uniqueness of hashSet here as Student fields are public and
 		// mutable, java is pas by reference so st1 object and st1 added to list both
 		// point to same location
-		System.out.println(studentList.size());// 2
+		System.out.println(studentList.size());// still 3
 		System.out.println(studentList);
 	}
 }

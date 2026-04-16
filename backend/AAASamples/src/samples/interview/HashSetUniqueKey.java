@@ -16,7 +16,7 @@ public class HashSetUniqueKey {
 		Person pDup = new Person(103, "Alice");
 		person.add(pDup);
 		pDup.setId(101);// direct change object reference breaks hashSet unique key
-		System.out.println("Unique students count: " + person.size()); // Prints 1
+		System.out.println("Unique students count: " + person.size()); // Prints 2
 		System.out.println(person);
 	}
 }

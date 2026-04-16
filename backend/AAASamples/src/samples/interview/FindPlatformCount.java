@@ -7,16 +7,16 @@ public class FindPlatformCount {
 	public static int findPlatform(int[] arr, int[] dep) {
 		// Assuming time is in HHMM format and max 24 hours.
 		// Using 2400 for 24-hour clock + margin
-		int[] platformTimeline = new int[2402];//2400 hours
+		int[] platformTimeline = new int[2401];// 2400 hours
 
 		for (int i = 0; i < arr.length; i++) {
 			platformTimeline[arr[i]]++;
-			platformTimeline[dep[i]+1]--;// or just dep[i] for instant departure
+			platformTimeline[dep[i] + 1]--;// or just dep[i] for instant departure
 		}
 
 		int maxPlatforms = 0;
 		int currentPlatforms = 0;
-		for (int i = 0; i < 2402; i++) {
+		for (int i = 0; i < 2401; i++) {
 			currentPlatforms += platformTimeline[i];
 			maxPlatforms = Math.max(maxPlatforms, currentPlatforms);
 		}
@@ -28,7 +28,7 @@ public class FindPlatformCount {
 		int[] dep = { 910, 1200, 1120, 1130, 1900, 2000 };
 		System.out.println("Minimum Platforms Required: " + findPlatform(arr, dep)); // Output: 3
 		int n = arr.length;
-        System.out.println("Minimum Platforms Required: " + findMinimumPlatforms(arr, dep, n));
+		System.out.println("Minimum Platforms Required: " + findMinimumPlatforms(arr, dep, n));
 	}
 
 	// general approach by sorting
@@ -39,7 +39,7 @@ public class FindPlatformCount {
 
 		int platformsNeeded = 1;
 		int maxPlatforms = 1;
-		int i = 1, j = 0;//check this, check arrival from 1
+		int i = 1, j = 0;// remember this, check arrival from 1
 
 		// 2. Use two pointers to compare arrival and departure
 		while (i < n && j < n) {
@@ -48,17 +48,12 @@ public class FindPlatformCount {
 			if (arr[i] <= dep[j]) {
 				platformsNeeded++;
 				i++;
-			}
-			// If a train departs, one platform becomes free
-			else {
+			} else {// If a train departs, one platform becomes free
 				platformsNeeded--;
 				j++;
 			}
-
 			// Update the maximum platforms needed so far
-			if (platformsNeeded > maxPlatforms) {
-				maxPlatforms = platformsNeeded;
-			}
+			maxPlatforms = Math.max(maxPlatforms, platformsNeeded);
 		}
 		return maxPlatforms;
 	}

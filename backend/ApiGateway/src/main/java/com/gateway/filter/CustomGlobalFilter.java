@@ -26,6 +26,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
 
         return chain.filter(exchange).then(Mono.fromRunnable(() -> {
             // Post-filter logic: Modify the response (e.g., add a header, log details)
+        	exchange.getResponse().getHeaders().add("X-Global-Header", "Spring-Cloud-Gateway");
             logger.info("CustomGlobalFilter executed (post): Response status = {}", exchange.getResponse().getStatusCode());
             System.out.println("after forward");
         }));
