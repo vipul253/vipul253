@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <script>
+            function display(obj){
+                document.write("Name = " + obj.name+"<br>");
+                document.write("Age = " + obj.age+"<br>");
+            }
+        </script>
+    </head>
+    <body>
+        
+        <h3>
+            <script>
+                var emp1 = new Object();
+                var emp1 = new Object();
+                
+                emp1.name = "jj";
+                emp1.age = 25;
+
+                //function as constructor
+                function Employee(a,b){
+                    this.name = a;
+                    this.age = b;
+                }
+                var emp3 = {"name":"emp3","age":33}
+                var emp4 = new Employee("EMP4", 44);
+
+                class User {
+                    // 1. Declaration in Class Body
+                    role = "Guest";    // Public field with default value
+                    age;               
+                    #id;// Private field (MUST be declared here)
+                    constructor(name, age) {
+                        // 2. Declaration in Constructor
+                        this.name = name; // Instance property from argument
+                        this.age = age;    // Assigning value to pre-declared private field
+                    }
+                    getId(){
+                        return this.age;
+                    }
+                }
+                let emp5 = new User("vip", 25);
+                display(emp1);
+                display(emp3);
+                display(emp4);
+                display(emp5);
+            </script>
+        </h3>
+    </body>
+</html>
