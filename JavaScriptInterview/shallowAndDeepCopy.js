@@ -18,12 +18,13 @@ console.log(original.b.c); // Output: 5 (original changed)
 
 //Deep Copy Methods
 //JSON.parse(JSON.stringify(obj)): A simple, common method for plain, JSON-compatible objects.
-//Limitation: It will not work on objects containing functions, undefined, Symbol, Date, or 
+//Limitation: It will not work on objects containing functions, undefined, Symbol, Date, or
 //circular references, as these are not serializable in JSON
-//structuredClone(obj): The modern, built-in global function in most modern JavaScript environments for 
-//creating deep copies. It handles more data types than the JSON method but still has limitations 
+//structuredClone(obj): The modern, built-in global function in most modern JavaScript environments for
+//creating deep copies. It handles more data types than the JSON method but still has limitations
 //(e.g., cannot clone functions)
-//Libraries (e.g., Lodash): For complex scenarios, especially when dealing with non-serializable data or circular references, the _.cloneDeep() method from the Lodash library is a robust, production-grade solution.
+//Libraries (e.g., Lodash): For complex scenarios, especially when dealing with non-serializable data or circular 
+//references, the _.cloneDeep() method from the Lodash library is a robust, production-grade solution.
 //Custom Recursive Function: A custom function can be written for full control over what is copied
 
 const deepOriginal = {

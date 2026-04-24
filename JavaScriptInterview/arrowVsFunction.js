@@ -1,6 +1,6 @@
 "use strict";
 const name = "Angular";
-var person = {
+let person = {
   name: "react",
   age: 30,
   getDetail: function () {

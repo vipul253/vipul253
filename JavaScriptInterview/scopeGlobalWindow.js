@@ -18,4 +18,4 @@ function greet() {
 console.log(window.userName); // "John"
 console.log(userName); // "John"
 
-//JS has global scope, function(){} scope, block {} scope
+// JS has global scope, function(){} scope, block {} scope

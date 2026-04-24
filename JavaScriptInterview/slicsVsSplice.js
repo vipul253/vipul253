@@ -10,7 +10,7 @@ console.log(colors); // ["red", "green", "blue", "yellow"] (Unchanged)
 
 const fruits = ["apple", "banana", "cherry"];
 // Remove 1 item at index 1 and add 'orange'
-const removed = fruits.splice(1, 1, "orange");
+const removed = fruits.splice(0, 1, "orange", "mango");
 // (start, deleteCount, item1, item2, ...)
 console.log(fruits); // ["apple", "orange", "cherry"] (Modified)
 console.log(removed); // ["banana"] (The deleted item)
