@@ -1,4 +1,5 @@
 var add = function (a, ...b) {
+  //can use only one rest operator and it must be at the end
   //rest operator
   let res = a;
   for (let i = 0; i < b.length; i++) {
@@ -48,11 +49,11 @@ disp1(...emp, ...addr, pin);
 //Context	      Used in array/object literals and function calls.	      Used in function parameters and destructuring.
 //Position	      Can be placed anywhere (start, middle, or end).	      Must be the last parameter/element in the list.
 
-let arr1 = [1,2,3];
-let arr2 = [4,5,6];
-let arr3 = [7,8,9];
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+let arr3 = [7, 8, 9];
 let list1 = [arr1, arr2, arr3];
-let list2 = [...arr1,...arr2,...arr3];
+let list2 = [...arr1, ...arr2, ...arr3];
 
 console.log(list1);
 console.log(list2);
