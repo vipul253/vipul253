@@ -1,6 +1,7 @@
 package samples.threading;
 
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class SemaphoreSample {
 
@@ -20,7 +21,7 @@ public class SemaphoreSample {
 }
 
 class Shared {
-	public static int count = 0;
+	public static AtomicInteger count = new AtomicInteger(0);
 }
 
 class IncThread extends Thread {
@@ -39,8 +40,8 @@ class IncThread extends Thread {
 			sem.acquire();
 			System.out.println(name + " has got the permission.");
 			for (int i = 1; i <= 5; i++) {
-				Shared.count++;
-				System.err.println(name + " :" + Shared.count);
+				Shared.count.getAndIncrement();
+				System.out.println(name + " :" + Shared.count);
 				Thread.sleep(200);
 
 			}
@@ -68,8 +69,8 @@ class DecThread extends Thread {
 			sem.acquire();
 			System.out.println(name + " has got the permission.");
 			for (int i = 1; i <= 5; i++) {
-				Shared.count--;
-				System.err.println(name + " :" + Shared.count);
+				Shared.count.getAndDecrement();
+				System.out.println(name + " :" + Shared.count);
 				Thread.sleep(200);
 
 			}
